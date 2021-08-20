@@ -11,7 +11,8 @@ const input = './modules/index.js';
 const globalName = 'History';
 
 function external(id) {
-  return !id.startsWith('.') && !id.startsWith('/');
+  // return !id.startsWith('.') && !id.startsWith('/');
+  return !id.startsWith('.') && !id.startsWith('/') && id.indexOf('history\\modules') === -1;
 }
 
 const cjs = [
@@ -70,7 +71,7 @@ const umd = [
       nodeResolve(),
       commonjs({ include: /node_modules/ }),
       replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
-      sizeSnapshot()
+      // sizeSnapshot()
     ]
   },
   {
@@ -85,7 +86,7 @@ const umd = [
       nodeResolve(),
       commonjs({ include: /node_modules/ }),
       replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
-      sizeSnapshot(),
+      // sizeSnapshot(),
       uglify()
     ]
   }
