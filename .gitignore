@@ -1,6 +1,3 @@
 /node_modules/
-/esm/
-/cjs/
-/umd/
 /local.log
 .idea
